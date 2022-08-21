@@ -12,7 +12,7 @@ dotenv.config();
 const server =  express();
 
 server.set('view engine', 'mustache');
-server.set('views ', path.join(__dirname, 'view'));
+server.set('views', path.join(__dirname, 'views'));
 server.engine('mustache', mustache());
 
 
@@ -25,7 +25,7 @@ server.use(express.static(path.join(__dirname, '../')))
 server.use(mainRoutes);
 
 server.use((req:Request, res: Response)=>{
-    res.status(400).send('Pagina não encontrada') 
+   res.status(404).render('pages/404') ;
 });
 
 /*PORTA */
